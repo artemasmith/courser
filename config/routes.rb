@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root to: "currency#index"
+
+  get '/admin', to: 'currency#admin'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
