@@ -1,0 +1,6 @@
+pull_cbr:
+  cron: '*/10 * * * *'
+  class: 'CbrPullJob'
+  queue: 'pull_cbr_queue'
+  args:
+  description: 'Pull current currencies from CBR'
