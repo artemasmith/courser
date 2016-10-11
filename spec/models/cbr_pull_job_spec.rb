@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spec_helper.rb'
 
 RSpec.describe CbrPullJob do
   before do
@@ -8,9 +7,8 @@ RSpec.describe CbrPullJob do
 
   it "normal creation" do
     currency = CBR.daily.valutes.find{ |v| v.char_code == 'USD' }.value
-    puts currency
+    Resque.enqueue(CbrPullJob)
     ResqueSpec.perform_next('pull_cbr_queue')
-    # expect(Currency.last.value).to eq(currency)
-    expect(Currency.count).to be > 0
+    expect(Currency.last.value).to eq(currency.to_s)
   end
 end

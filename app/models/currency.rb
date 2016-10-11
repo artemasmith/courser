@@ -7,7 +7,7 @@ class Currency < ActiveRecord::Base
 
   validate :validates_format
   def validates_format
-    if value.present? && value.sub(',','').match(/\D/).present?
+    if value.present? && value.sub('.','').match(/\D/).present?
       errors.add(:value, 'incorrect value format')
     end
   end
