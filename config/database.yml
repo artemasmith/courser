@@ -1,6 +1,5 @@
 default: &default
   adapter: postgresql
-  user: root
   pool: 5
   timeout: 5000
 

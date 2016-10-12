@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'currency#admin'
 
+  require 'resque/server'
+
+  # Of course, you need to substitute your application name here, a block
+  # like this probably already exists.
+  Courser::Application.routes.draw do
+    mount Resque::Server.new, at: "/resque"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
