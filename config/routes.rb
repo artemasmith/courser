@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "currency#index"
 
   get '/admin', to: 'currency#admin'
+  post 'currency', to: 'currency#create'
 
   require 'resque/server'
 

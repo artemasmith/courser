@@ -4,7 +4,7 @@ class CreateCurrencies < ActiveRecord::Migration
       t.string :name
       t.string :code
       t.string :value
-      t.bool :force
+      t.bool :force, default: false
       t.datetime :forced_till
 
       t.timestamps null: false
