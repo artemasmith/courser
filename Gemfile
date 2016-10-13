@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
+# ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '~>4.2.0'
 gem 'pg'
 gem 'foreman'
 gem 'resque'
@@ -35,11 +35,14 @@ gem 'cbr'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
-  gem 'rspec-rails'
   gem 'resque_spec'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
 end
 
 group :development do

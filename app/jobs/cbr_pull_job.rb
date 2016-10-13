@@ -2,7 +2,6 @@ class CbrPullJob
   @queue = :pull_cbr_queue
 
   def self.perform(currency = 'USD')
-    puts "HELLO!!!!!"
     db_currency = Currency.new
     db_currency.name = currency
     db_currency.value = get_daily(currency).to_s

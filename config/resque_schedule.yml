@@ -1,6 +1,5 @@
 pull_cbr:
-  # cron: '*/10 * * * *'
-  every: 60s
-  class: CbrPullJob
+  every: '1h'
+  class: 'CbrPullJob'
   args:
-  description: Pull current currencies from CBR
+  description: 'Pull current currencies from CBR'
