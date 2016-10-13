@@ -4,3 +4,5 @@ rvm:
 services:
   - redis-server
   - postgresql
+before_script:
+  - psql -c 'create database courser_test;' -U postgres
