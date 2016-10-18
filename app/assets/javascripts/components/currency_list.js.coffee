@@ -12,5 +12,6 @@
           React.DOM.th null, 'Value'
           React.DOM.th null, 'Forced by admin'
       React.DOM.tbody null,
+        React.createElement CurrencyInput
         for record in this.props.currency_list
-          React.createElement currencyRecord, key: record.id, currency_record: record
+          React.createElement CurrencyRecord, key: record.id, currency_record: record

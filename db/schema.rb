@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20160906073302) do
 
   create_table "currencies", force: :cascade do |t|
     t.string   "name"
-    t.string   "code"
     t.string   "value"
     t.datetime "forced_till"
     t.boolean  "active",      default: false
