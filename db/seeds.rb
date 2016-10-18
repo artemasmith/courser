@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+[
+  { name: 'USD', code: 'usd', value: '30.78' },
+  { name: 'USD', code: 'usd', value: '32.26', forced_till: Time.now + 1.day },
+  { name: 'USD', code: 'usd', value: '35.21' },
+  { name: 'USD', code: 'usd', value: '40.5' },
+]

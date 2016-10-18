@@ -20,10 +20,13 @@ ActiveRecord::Schema.define(version: 20160906073302) do
     t.string   "name"
     t.string   "code"
     t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "forced_till"
+    t.boolean  "active",      default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
+  add_index "currencies", ["forced_till"], name: "index_currencies_on_forced_till", using: :btree
   add_index "currencies", ["name"], name: "index_currencies_on_name", using: :btree
 
 end

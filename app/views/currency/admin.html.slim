@@ -1,2 +1,14 @@
-<h1>Currency#admin</h1>
-<p>Find me in app/views/currency/admin.html.erb</p>
+.row
+  .col-md-4
+  .col-md-4
+    h1.h1 Admin Currency
+  .col-md-4
+.row
+  .col-md-4
+  .col-md-4
+    h2.h2 Currencies
+.row
+  .col-md-4
+  .col-md-4
+    = react_component 'Currencies', { currency_list: @currency_list }
+

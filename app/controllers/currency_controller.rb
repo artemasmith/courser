@@ -1,6 +1,7 @@
 class CurrencyController < ApplicationController
+
   def index
-    @currency = Currency.last || ''
+    @currency = Currency.get_active_or_last || ''
   end
 
   def create
@@ -16,6 +17,7 @@ class CurrencyController < ApplicationController
 
   def admin
     @currency_list = Currency.for_selection
+    # render json: @currency_list.to_json
   end
 
   private
