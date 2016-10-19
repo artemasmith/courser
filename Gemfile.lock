@@ -216,7 +216,7 @@ DEPENDENCIES
   resque-scheduler
   resque_spec
   rspec-rails
-  sass-rails (>= 3.2)
+  sass-rails (>= 5.0)
   slim
   spring
   sprockets-rails

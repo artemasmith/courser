@@ -13,6 +13,15 @@ class Currency < ActiveRecord::Base
   def self.get_active_or_last
     self.forced.first || self.last
   end
+
+  def as_json(options = {})
+    json = {}
+    [:created_at, :updated_all, :forced_till].each do |time|
+      next if self.try(time).blank?
+      json.merge!(time => self.send(time).strftime('%d.%m.%Y %H:%M:%S'))
+    end
+    super.merge(json)
+  end
   private
 
   validate :validates_format
