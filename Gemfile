@@ -23,6 +23,9 @@ group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
   gem 'resque_spec'
+  gem 'capybara-webkit'
+  gem 'rspec-retry'
+  gem 'capybara'
 end
 
 group :development, :test do

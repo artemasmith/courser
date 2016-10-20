@@ -1,6 +1,6 @@
 class Currency < ActiveRecord::Base
 
-  scope :for_selection, -> { order :created_at }
+  scope :for_selection, -> { order 'created_at DESC' }
   scope :forced, -> { where(active: true) }
 
   validates :name, presence: true, length: { minimum: 2 }

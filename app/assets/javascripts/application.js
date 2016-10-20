@@ -15,6 +15,8 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require jquery.datetimepicker
+//= require validation
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
