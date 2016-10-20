@@ -1,19 +1,10 @@
-@Currencies = React.createClass
+@CurrensyList = React.createClass
   getInitialState: ->
-    currency_list: @currency_list
+    currency_list: this.props.currency_list
+    updateForm: @props.updateForm
   getDefaultProps: ->
     currency_list: []
-  createForcedCurrency: (currency_name, value, forced_till)->
-    $.ajax
-      type: 'POST'
-      url: '/currency'
-      data: { currency: { name: currency_name, value: value, forced_till: forced_till }},
-      accepts: json: 'application/json'
-      dataType: 'json'
-      success: (req, status, resp) ->
-        this.setState(changed: true)
-      error: (req, status, resp) ->
-        alert "Save failed with error: #{resp}"
+
   render: ->
     React.DOM.div
       className: 'currency-list'
