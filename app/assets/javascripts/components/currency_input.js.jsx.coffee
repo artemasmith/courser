@@ -2,21 +2,23 @@
   getInitialState: ->
     value: ''
     forced_till: ''
-    createForcedCurrency: @props.createForcedCurrency
+    name: 'USD'
 
   handleChange: (e)->
     name = e.target.name
-    console.log(name)
-    console.log(e.target.value)    
     @setState "#{ name }": e.target.value
 
   getDatePicker: (e)->
     @setState "forced_till": $('.datetimepicker').val()
     console.log($('.datetimepicker').val())
-  onSubmit: (e)->
+
+  onSubmit: (e) ->
     e.preventDefault()
-    if @state.value && @state.forced_till
-      @props.createForcedCurrency('USD', this.state.value, this.state.forced_till)
+    $.post '/currency', { currency: @state }, (data) =>
+      @props.handleNewCurrency data
+      @setState @getInitialState()
+    , 'JSON'
+
   render: ->
     `<div className="row">
       <div className="col-md-6 input-group"></div>

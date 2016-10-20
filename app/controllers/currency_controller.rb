@@ -5,12 +5,11 @@ class CurrencyController < ApplicationController
   end
 
   def create
-    @currency = Currency.new(currency_params)
-    if @currency.valid?
-      @currency.save!
-      render status: 200, json: { currency_list: Currency.for_selection }
+    currency = Currency.new(currency_params)
+    if currency.save
+      render status: 200, json: currency
     else
-      errors = @currency.errors.full_messages
+      errors = currency.errors.full_messages
       render status: 500, json: errors.to_json
     end
   end

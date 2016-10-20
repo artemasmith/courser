@@ -26,6 +26,8 @@ group :test do
   gem 'capybara-webkit'
   gem 'rspec-retry'
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'phantomjs'
 end
 
 group :development, :test do
