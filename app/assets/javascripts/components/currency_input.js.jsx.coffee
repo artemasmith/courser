@@ -26,7 +26,7 @@
         <form data-toggle="validator" role="form" onSubmit={this.onSubmit}>
           <div className="form-group has-feedback">
             <label htmlFor="currency-value" className="control-label">Value</label>
-            <input type="text" className="form-control" pattern="^[0-9]{1,}[.]{0,1}[0-9]{0,2}$" id="currency-value" name="value" onChange={this.handleChange} placeholder="Value" required/>
+            <input type="text" className="form-control" pattern="^[0-9]{1,}[.]{0,1}[0-9]{0,4}$" id="currency-value" name="value" onChange={this.handleChange} placeholder="Value" required/>
             <span className="glyphicon form-control-feedback" aria-hidden="true"></span>
             <div className="help-block with-errors">Please provide value in format XX.YY [12.00]</div>
           </div>
