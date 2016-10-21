@@ -4,10 +4,10 @@
   getDefaultProps: ->
     currency_list: []
   addCurrency: (record) ->
+    console.log('we are in add curency')
     currencies = @state.currency_list
     currencies.unshift record
     @setState currency_list: currencies
-
   render: ->
     React.DOM.div
       className: 'test'

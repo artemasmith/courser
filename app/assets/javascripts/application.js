@@ -16,6 +16,8 @@
 //= require react_ujs
 //= require components
 //= require jquery.datetimepicker
+//= require cable
+//= require channels
 //= require validation
 //= require jquery_ujs
 //= require turbolinks

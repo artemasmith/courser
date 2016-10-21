@@ -1,8 +1,24 @@
 @Currency = React.createClass
   getInitialState: ->
     currency: @props.currency
-  handleSubscription: (new_value)->
-    @setState(currency: new_value)
+  setupSubscription: ->
+    App.comments = App.cable.subscriptions.create(
+      'CurrencyBroadcastChannel',
+      updateCurrency: @updateCurrency
+      connected: ->
+        setTimeout @perform('follow'), 1000
+
+      received: (data) ->
+        @updateCurrency data.currency
+      )
+
+  
+  updateCurrency: (data)->
+    console.log('UPDATEING CuRRENCY')
+    @setState(currency: data)
+  componentDidMount: ->
+    @setupSubscription
+
   render: ->
     React.DOM.div
       className: 'Currency'

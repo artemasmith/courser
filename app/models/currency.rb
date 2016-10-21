@@ -38,4 +38,6 @@ class Currency < ActiveRecord::Base
       self.active = true
     end
   end
+
+  after_commit { CurrencyRelayJob.enqueue(self) }
 end

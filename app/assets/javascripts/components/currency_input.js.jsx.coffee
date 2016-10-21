@@ -1,8 +1,10 @@
 @CurrencyInput = React.createClass
   getInitialState: ->
+    console.log('HOOOOOO')
     value: ''
     forced_till: ''
     name: 'USD'
+
 
   handleChange: (e)->
     name = e.target.name
@@ -14,7 +16,9 @@
 
   onSubmit: (e) ->
     e.preventDefault()
+    console.log('we are in on submit')
     $.post '/currency', { currency: @state }, (data) =>
+      console.log('callback')
       @props.handleNewCurrency data
       @setState @getInitialState()
     , 'JSON'
