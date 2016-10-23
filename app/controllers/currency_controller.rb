@@ -16,7 +16,6 @@ class CurrencyController < ApplicationController
 
   def admin
     @currency_list = Currency.for_selection
-    # render json: @currency_list.to_json
   end
 
   private

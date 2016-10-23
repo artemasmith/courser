@@ -14,5 +14,10 @@ RSpec.describe Currency, type: :model do
       currency2 = Currency.create!(name: 'USD', value: '42.20')
       expect(Currency.get_active).to eq(currency)
     end
+    it "get_active_or_last" do
+      currency1 = Currency.create(name: 'USD', value: '50.30', forced_till: Time.now - 1.day)
+      currency2 = Currency.create(name: 'USD', value: '50.30')
+      expect(Currency.get_active_or_last).to eq(currency2)
+    end
   end
 end

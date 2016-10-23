@@ -1,13 +1,44 @@
 require 'rails_helper'
 
-describe 'admin', js: true do
+describe 'admin', js: true, type: :feature do
   context "list of currencies" do
-    it "list has currencies" do
-      # Currency.create(name: 'USD', value: '40.34')
-      # visit '/admin'
-      # puts page.html
-      # expect(page).to have_content('Value')
-      # expect(page).to have_content('40.34')
+    let(:value) { return '45.6'}
+    let(:forced_till) { return (Time.now + 1.hour).strftime('%d/%m/%Y %H:%M:%S') }
+
+    it "normal creation" do
+      visit '/admin'
+      within('#create-currency') do
+        fill_in "value", with: value
+        fill_in "forced_till", with: forced_till
+      end
+      click_button 'Create'
+      
+      expect(page).to have_content('45.6')
+      expect(Currency.count).to eq(1)
+    end
+
+    it "validation failed" do
+      visit '/admin'
+      within('#create-currency') do
+        fill_in "value", with: value
+        
+      end
+      click_button 'Create'
+      
+      expect(page).not_to have_content('45.6')
+      expect(Currency.count).not_to eq(1)
+    end
+
+    it "validation failed" do
+      visit '/admin'
+      within('#create-currency') do
+        fill_in "forced_till", with: forced_till
+        
+      end
+      click_button 'Create'
+      
+      expect(page).not_to have_content('45.6')
+      expect(Currency.count).not_to eq(1)
     end
   end
 end

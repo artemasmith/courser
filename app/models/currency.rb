@@ -11,7 +11,11 @@ class Currency < ActiveRecord::Base
   end
 
   def self.get_active_or_last
-    self.forced.first || self.last
+    if self.forced.first.present? && self.forced.first.forced_till >= Time.now
+      self.forced.first
+    else
+      self.last
+    end
   end
 
   def as_json(options = {})
@@ -39,5 +43,5 @@ class Currency < ActiveRecord::Base
     end
   end
 
-  after_commit { CurrencyRelayJob.enqueue(self) }
+  after_commit { Resque.enqueue(CurrencyRelayJob,self) }
 end
