@@ -10,6 +10,7 @@ require 'capybara/webkit'
 # require 'rspec/retry'
 # require 'capybara/poltergeist'
 Capybara.javascript_driver = :webkit
+Capybara.default_wait_time = 15
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
