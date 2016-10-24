@@ -6,10 +6,13 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara/webkit'
 # require 'rspec/retry'
 # require 'capybara/poltergeist'
 Capybara.javascript_driver = :webkit
-Capybara.default_max_wait_time = 15
+Capybara.register_driver :webkit do |app|
+  Capybara::Driver::Webkit.new(app, :ignore_ssl_errors => true)
+end
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
