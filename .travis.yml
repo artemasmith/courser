@@ -9,4 +9,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - psql -c 'create database courser_test;' -U postgres
   - sleep 5
+script:
+  - bundle exec rspec spec/controllers/*.rb
+  - bundle exec rspec spec/models/*.rb
 
