@@ -18,7 +18,7 @@ RSpec.describe CurrencyController, type: :controller do
 
   context "creation check" do
     it "normal creation" do
-      post :create, { currency: { value: '30.5', name: 'USD' }}
+      post :create, params: { currency: { value: '30.5', name: 'USD' }}
       expect(Currency.count).to eq(1)
     end
   end
